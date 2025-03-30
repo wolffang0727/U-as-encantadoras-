@@ -1,0 +1,84 @@
+import React, { useState } from 'react';
+import Header from './components/Header';
+import ServiceSelector from './components/ServiceSelector';
+import AppointmentForm from './components/AppointmentForm';
+import AppointmentList from './components/AppointmentList';
+import Footer from './components/Footer';
+
+function App() {
+  const [currentView, setCurrentView] = useState('services');
+  const [selectedService, setSelectedService] = useState(null);
+  const [appointments, setAppointments] = useState([]);
+  const [selectedAppointment, setSelectedAppointment] = useState(null);
+
+  const handleServiceSelect = (service) => {
+    setSelectedService(service);
+    setCurrentView('form');
+  };
+
+  const handleAppointmentSubmit = (appointment) => {
+    if (selectedAppointment) {
+      const updatedAppointments = appointments.map(app => 
+        app === selectedAppointment ? appointment : app
+      );
+      setAppointments(updatedAppointments);
+      setSelectedAppointment(null);
+    } else {
+      setAppointments([...appointments, appointment]);
+    }
+    setCurrentView('services');
+  };
+
+  const handleModifyAppointment = (appointment) => {
+    setSelectedAppointment(appointment);
+    setCurrentView('form');
+  };
+
+  const renderContent = () => {
+    switch(currentView) {
+      case 'services':
+        return <ServiceSelector onServiceSelect={handleServiceSelect} />;
+      case 'form':
+        return (
+          <AppointmentForm 
+            selectedService={selectedService}
+            onAppointmentSubmit={handleAppointmentSubmit}
+            onBack={() => setCurrentView('services')}
+            initialData={selectedAppointment}
+          />
+        );
+      case 'list':
+        return (
+          <AppointmentList 
+            appointments={appointments}
+            onModify={handleModifyAppointment}
+            onBack={() => setCurrentView('services')}
+          />
+        );
+      default:
+        return <ServiceSelector onServiceSelect={handleServiceSelect} />;
+    }
+  };
+
+  return (
+    <div className="flex flex-col min-h-screen bg-purple-50">
+      <Header />
+      <main className="container mx-auto p-4 flex-grow">
+        {renderContent()}
+        {currentView !== 'list' && (
+          <button 
+            onClick={() => setCurrentView('list')}
+            className="mt-4 w-full bg-purple-900 text-white py-2 rounded hover:bg-purple-800 transition-colors duration-300"
+          >
+            Ver Mis Citas
+          </button>
+        )}
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
+
+// DONE
