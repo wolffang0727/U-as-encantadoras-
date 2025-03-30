@@ -1,0 +1,105 @@
+import React from 'react';
+
+const Footer = () => {
+  return (
+    <footer className="bg-purple-900 text-white p-6 mt-8">
+      <div className="container mx-auto grid md:grid-cols-3 gap-4">
+        <div>
+          <h3 className="text-xl font-bold mb-3 flex items-center">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-6 w-6 mr-2" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h3m-3-8a5 5 0 01-5 5v0a5 5 0 01-5-5v-1a5 5 0 0110 0v1z" 
+              />
+            </svg>
+            Contacto
+          </h3>
+          <p>Teléfono: +57 318 733 1132</p>
+        </div>
+        
+        <div>
+          <h3 className="text-xl font-bold mb-3 flex items-center">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-6 w-6 mr-2" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" 
+              />
+            </svg>
+            Horarios
+          </h3>
+          <p>Lunes a Viernes: 7am - 8pm</p>
+          <p>Sábados: 9am - 7pm</p>
+          <p>Domingos: Cerrado</p>
+        </div>
+        
+        <div>
+          <h3 className="text-xl font-bold mb-3 flex items-center">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-6 w-6 mr-2" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" 
+              />
+            </svg>
+            Síguenos
+          </h3>
+          <div className="flex space-x-4">
+            <a 
+              href="https://www.instagram.com/rouse_unas_encantadoras?igsh=NHhsdTN5b3g1NGQy" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-purple-300 flex items-center"
+            >
+              Instagram
+            </a>
+            <a 
+              href="https://www.facebook.com/share/1EJtmmZQEd/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-purple-300 flex items-center"
+            >
+              Facebook
+            </a>
+            <a 
+              href="https://wa.me/573187331132" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-purple-300 flex items-center"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div className="text-center mt-6 border-t border-purple-800 pt-4">
+        <p>&copy; 2024 Rouse Uñas Encantadoras. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
